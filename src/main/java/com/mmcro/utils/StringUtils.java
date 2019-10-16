@@ -132,7 +132,7 @@ public class StringUtils {
 		if(dotIndex==-1)
 			return "";
 		
-		return fileName.substring(fileName.lastIndexOf('.'));
+		return fileName.substring(fileName.lastIndexOf('.')-1);
 		
 	}
 	
