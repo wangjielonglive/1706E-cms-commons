@@ -31,7 +31,7 @@ public class FileUtils {
 	
 	/**
 	 * 删除文件或者文件夹，使用递归的算法
-	 * @param path
+	 * @param path  
 	 */
 	public static void del(String path) {
 		
