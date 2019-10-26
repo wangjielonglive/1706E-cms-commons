@@ -1,5 +1,7 @@
 package com.mmcro.utils;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.Random;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -84,6 +86,41 @@ public class StringUtils {
 		//return !(str==null || 0== str.trim().length());
 		return str!=null && 0 < str.trim().length();   
 	
+	}
+	
+	public static boolean isUrl(String str) {
+		 //转换为小写
+       str = str.toLowerCase();
+       String regex = "^((https|http|ftp|rtsp|mms)?://)"  //https、http、ftp、rtsp、mms
+               + "?(([0-9a-z_!~*'().&=+$%-]+: )?[0-9a-z_!~*'().&=+$%-]+@)?" //ftp的user@  
+              + "(([0-9]{1,3}\\.){3}[0-9]{1,3}" // IP形式的URL- 例如：199.194.52.184  
+                + "|" // 允许IP和DOMAIN（域名）
+                + "([0-9a-z_!~*'()-]+\\.)*" // 域名- www.  
+                + "([0-9a-z][0-9a-z-]{0,61})?[0-9a-z]\\." // 二级域名  
+               + "[a-z]{2,6})" // first level domain- .com or .museum  
+               + "(:[0-9]{1,5})?" // 端口号最大为65535,5位数
+               + "((/?)|" // a slash isn't required if there is no file name  
+               + "(/[0-9a-z_!~*'().;?:@&=+$,%#-]+)+/?)$";  
+       return  str.matches(regex);
+	}
+	
+	
+	
+	/*
+	* 方法：生成唯一标签名，处理步骤：
+	* 1、全部变成小写；
+	* 2、清空两边的空格，把中间所有的空格替换成“-”；
+	* 3、使用URLEncoder.encode()编码
+	* 最后返回处理的结果。
+	* 举例“Spring MVC”处理后为“spring-mvc”，“Spring Mvc”处理后也为“spring-mvc”
+	*/
+	public static String toUniqueTerm(String term) throws UnsupportedEncodingException{
+	//TODO 实现代码
+		term=term.toLowerCase();
+		term=term.trim();
+		term = term.replaceAll(" ", "-");
+		return URLEncoder.encode(term,"UTF-8");
+		
 	}
 	
 	/**
