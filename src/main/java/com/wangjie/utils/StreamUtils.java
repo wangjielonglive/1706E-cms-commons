@@ -1,4 +1,4 @@
-package com.mmcro.utils;
+package com.wangjie.utils;
 
 import java.io.Closeable;
 import java.io.IOException;

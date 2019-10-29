@@ -1,4 +1,4 @@
-package com.mmcro.utils;
+package com.wangjie.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -8,14 +8,9 @@ public class DateUtils {
 	
 	public static void main(String[] args) {
 		
-		Date birth = new Date(100, 0, 6);
-		int age = calAge(birth);
-		System.out.println("age is " + age);
+		boolean number = StringUtils.isNumber("9");
+		System.out.println(number);
 		
-		System.out.println("今天的月初是 " + getMonthStart(new Date()));
-		
-		
-		System.out.println("今天的月末是 " + getMonthEnd(new Date(119, 1, 23)));
 		
 		
 	}
