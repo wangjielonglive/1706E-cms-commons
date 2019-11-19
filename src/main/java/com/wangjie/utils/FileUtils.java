@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * æ–‡ä»¶ å·¥å…·ç±»
+ * ÎÄ¼ş ¹¤¾ßÀà
  * @author zhuzg
  *
  */
@@ -22,63 +22,63 @@ public class FileUtils {
 		
 		String readFileByLine = readFileByLine("D:\\1703A\\yunfu-parent\\pom.xml");
 		System.out.println("filename is " + readFileByLine);
-		//del("D:\\æ•™å­¦\\16.0\\å°äºŒ -å‰¯æœ¬");
+		//del("D:\\½ÌÑ§\\16.0\\Ğ¡¶ş -¸±±¾");
 		
-		//file = new File("D:\\æ•™å­¦\\16.0\\å°äºŒ -å‰¯æœ¬");
+		//file = new File("D:\\½ÌÑ§\\16.0\\Ğ¡¶ş -¸±±¾");
 		//file.delete();
 		//copy("D:\\1703A\\groupparent\\groupparent.rar","D:\\1703A\\groupparent\\groupparent22.rar");
 	}
 	
 	/**
-	 * åˆ é™¤æ–‡ä»¶æˆ–è€…æ–‡ä»¶å¤¹ï¼Œä½¿ç”¨é€’å½’çš„ç®—æ³•
+	 * É¾³ıÎÄ¼ş»òÕßÎÄ¼ş¼Ğ£¬Ê¹ÓÃµİ¹éµÄËã·¨
 	 * @param path
 	 */
 	public static void del(String path) {
 		
 		File file = new File(path);
-		//å¦‚æœæ–‡ä»¶ä¸å­˜åœ¨
+		//Èç¹ûÎÄ¼ş²»´æÔÚ
 		if(!file.exists()) {
-			System.out.println("ä¸å­˜åœ¨è¯¥è·¯å¾„" + path);
+			System.out.println("²»´æÔÚ¸ÃÂ·¾¶" + path);
 			return;
 		}
 		
-		//å¦‚æœæ˜¯æ–‡ä»¶ åˆ™åˆ é™¤
+		//Èç¹ûÊÇÎÄ¼ş ÔòÉ¾³ı
 		if(file.isFile()) {
-			System.out.println("åˆ é™¤ æ–‡ä»¶  " + path);
+			System.out.println("É¾³ı ÎÄ¼ş  " + path);
 			file.delete();
 		}
-		//å¦‚æœæ˜¯æ–‡ä»¶å¤¹ åˆ™é€’å½’è°ƒç”¨è‡ªå·±
+		//Èç¹ûÊÇÎÄ¼ş¼Ğ Ôòµİ¹éµ÷ÓÃ×Ô¼º
 		if(file.isDirectory()) {
 			String[] list = file.list();
 			for (int i = 0; i < list.length; i++) {
 				String subFileName = path + "\\" + list[i];
 				del(subFileName);
 			}
-			System.out.println("åˆ é™¤ç›®å½•  " + path);
+			System.out.println("É¾³ıÄ¿Â¼  " + path);
 			file.delete();
 		}
 		
 	}
 	
 	/**
-	 * æ‹·è´æ–‡ä»¶
-	 * @param src  æºæ–‡ä»¶
-	 * @param dst  ç›®æ ‡æ–‡ä»¶
+	 * ¿½±´ÎÄ¼ş
+	 * @param src  Ô´ÎÄ¼ş
+	 * @param dst  Ä¿±êÎÄ¼ş
 	 * @throws IOException 
 	 */
 	public static void copy(String src,String dst) throws IOException {
 		File fileSrc = new File(src);
 		if(!fileSrc.exists() || !fileSrc.isFile()) {
-			System.out.println(src + " æ–‡ä»¶ä¸å­˜åœ¨ï¼Œä¸èƒ½å¤åˆ¶å•Šï¼");
+			System.out.println(src + " ÎÄ¼ş²»´æÔÚ£¬²»ÄÜ¸´ÖÆ°¡£¡");
 			return;
 		}
 		
 		File fileDst = new File(dst);
 		if(fileDst.exists()) {
-			System.out.println("ç›®æ ‡æ–‡ä»¶å·²ç»å­˜åœ¨ï¼Œä¸èƒ½å¤åˆ¶");
+			System.out.println("Ä¿±êÎÄ¼şÒÑ¾­´æÔÚ£¬²»ÄÜ¸´ÖÆ");
 		}
 		
-		// è·å–è¾“å…¥æµ
+		// »ñÈ¡ÊäÈëÁ÷
 		FileInputStream fis = new FileInputStream(fileSrc);
 		FileOutputStream fos = new FileOutputStream(fileDst);
 		
@@ -89,7 +89,7 @@ public class FileUtils {
 		
 		/*fis.close();
 		fos.close();*/
-		//è°ƒç”¨æµå·¥å…·ç±» å»å…³é—­æµ
+		//µ÷ÓÃÁ÷¹¤¾ßÀà È¥¹Ø±ÕÁ÷
 		StreamUtils.closeStream(fis,fos);
 	}
 	
@@ -108,9 +108,9 @@ public class FileUtils {
 		BufferedReader  bufferedReader = new BufferedReader(reader);
 		String str = null;
 		while( (str=bufferedReader.readLine())!=null ) {
-			sb.append(str).append("\r\n");// è¿½åŠ 
+			sb.append(str).append("\r\n");// ×·¼Ó
 		}
-		//å…³é—­æµ
+		//¹Ø±ÕÁ÷
 		StreamUtils.closeStream(fis);
 		return sb.toString();
 		
@@ -122,13 +122,13 @@ public class FileUtils {
 		List<String> strList = new ArrayList();
 		File file = new File(fileName);
 		FileInputStream fis = new FileInputStream(file);
-		InputStreamReader reader = new InputStreamReader(fis,"utf-8");
+		InputStreamReader reader = new InputStreamReader(fis);
 		BufferedReader  bufferedReader = new BufferedReader(reader);
 		String str = null;
 		while( (str=bufferedReader.readLine())!=null ) {
 			strList.add(str);
 		}
-		//å…³é—­æµ
+		//¹Ø±ÕÁ÷
 		StreamUtils.closeStream(fis);
 		return strList;
 		

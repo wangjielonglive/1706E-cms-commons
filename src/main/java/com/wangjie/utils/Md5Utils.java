@@ -12,7 +12,7 @@ public class Md5Utils {
 	/**
 	 * 加盐
 	 */
-	private static String  saltString = "wangjie";
+	private static String  saltString = "mmcro";
 	
 	/**
 	 * 对密码进行加密

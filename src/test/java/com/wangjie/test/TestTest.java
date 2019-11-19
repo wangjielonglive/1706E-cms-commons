@@ -41,25 +41,25 @@ public class TestTest {
 		System.out.println("test1");
 		int m=21;
 		//assertEquals(20, m);
-		System.out.println("继续执行");
+		System.out.println("缁х画鎵ц");
 	}
 	
 	//@Test
 	public void testSuffix() {
 		String fileName = "d:\\tst\\my.xls";
 		String suffix = StringUtils.getFileSuffix(fileName);
-		assertEquals(suffix, ".xls");// 断言是否 相同
-		//assertNotEquals(unexpected, actual); 不相同
+		assertEquals(suffix, ".xls");// 鏂█鏄惁 鐩稿悓
+		//assertNotEquals(unexpected, actual); 涓嶇浉鍚�
 		assertThat(1, is(2));//
 		//assert
 		
 	}
 	
-	//@Test
+	@Test
 	public void testSuffix2() {
 		String fileName = "d:\\tst\\my.xls";
 		String suffix = StringUtils.getFileSuffix(fileName);
-		assertFalse(".xls".equals(suffix));// 断言是否 相同
+		assertFalse(".xls".equals(suffix));// 鏂█鏄惁 鐩稿悓
 		System.out.println("testSuffix2  ===== ");
 		
 	}
